@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistical</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../CSS/mystyle.css" th:href="@{/css/mystyle.css}" />
+</head>
+<body>
+<h1>Welcome to the Statistical section</h1>
+<div align="right">
+    <form action="Logout" method="GET">
+        <input type="submit" value="Logout">
+    </form>
+    <form action="AddAnswer" method="GET">
+        <input type="hidden" name="submit" value="true">
+        <input type="submit" value="Submit">
+    </form>
+    <form action="AddAnswer" method="GET">
+        <input type="hidden" name="submit" value="false">
+        <input type="submit" value="Cancel">
+    </form>
+    <form action="Questionnaire" method="GET">
+        <input type="submit" value="Previous">
+    </form>
+</div>
+<section>
+    <div>
+        <form th:action="@{/AddAnswer(questId=-1)}" th:method="POST">
+            Age: <input type="number" name="age" min="0"> <br>
+            Sex: <select name="sex" id="sex">
+            <option th:value="M"
+                    th:text="MALE"></option>
+            <option th:value="F"
+                    th:text="FEMALE"></option>
+            <option th:value="U"
+                    th:text="UNDEFINED" th:selected="selected"></option>
+            </select>
+            Expertise level: <select name="expertise" id="expertise">
+            <option th:value="LOW"
+                    th:text="LOW"></option>
+            <option th:value="MEDIUM"
+                    th:text="MEDIUM"></option>
+            <option th:value="HIGH"
+                    th:text="HIGH"></option>
+            <option th:value="UNSPECIFIED"
+                    th:text="UNSPECIFIED" th:selected="selected"></option>
+        </select>
+            <input type="submit" value="add info">
+            <p th:text=" ${errorMsg}"></p>
+        </form>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# Project exclude paths
+/MarketingGameEJB/target/
+/MarketingGameWeb/target/
+creds.txt
+.idea

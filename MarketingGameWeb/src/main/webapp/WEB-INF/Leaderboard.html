@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../CSS/mystyle.css" th:href="@{/css/mystyle.css}" />
+</head>
+<body>
+<div align="right">
+    <a th:href="@{/Logout}">Logout</a>
+</div>
+<table>
+    <caption>Leaderboard</caption>
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Points</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="u : ${users}">
+        <td th:text="${u.username}"></td>
+        <td th:text="${u.points}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

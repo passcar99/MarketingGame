@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inspection Page</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../CSS/mystyle.css" th:href="@{/css/mystyle.css}" />
+</head>
+<body>
+<section>
+        <table>
+            <caption>Submitted Users</caption>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="u : ${submitUsers}">
+                <td th:text="${u.id}"></td>
+                <td th:text="${u.username}"></td>
+            </tr>
+            </tbody>
+        </table>
+</section>
+<section>
+    <table>
+        <caption>Cancelled Users</caption>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="u : ${cancelUsers}">
+            <td th:text="${u.id}"></td>
+            <td th:text="${u.username}"></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section>
+    <table>
+        <caption>Answers</caption>
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Question</th>
+            <th>Answer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="a : ${answers}">
+            <td th:text="${a.user.username}"></td>
+            <td th:text="${a.question.text}"></td>
+            <td th:text="${a.text}"></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>

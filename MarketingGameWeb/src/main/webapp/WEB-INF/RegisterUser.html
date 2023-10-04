@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Login page</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../CSS/mystyle.css" th:href="@{/css/mystyle.css}" />
+</head>
+<body>
+<h1>Welcome to the mission management application</h1>
+<div>
+    <form action="Registration" method="POST">
+        Username: <input type="text" name="username" required> <br>
+        Password: <input type="password" name="pwd" required><br>
+        Email: <input type="text" name="email" required>
+        <input type="submit" value="register">
+        <p th:text=" ${errorMsg}"></p>
+    </form>
+</div>
+
+
+</body>
+</html>

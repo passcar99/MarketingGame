@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>DeletionPage</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../CSS/mystyle.css" th:href="@{/css/mystyle.css}" />
+</head>
+<body>
+<h1>Delete questionnaire data</h1>
+<div align="right">
+    <a th:href="@{/Logout}">Logout</a>
+    <a th:href="@{/GoToAdminPage}">Leaderboard</a>
+</div>
+<div>
+    <form action="DeleteQuestionnaire" method="POST">
+        Product name: <span th:text="${questionnaire.product.name}"></span>
+        <input type="hidden" name="questId" th:value="${questionnaire.id}">
+        <input type="submit" value="Delete questionnaire" >
+        <p th:text=" ${errorMsg}"></p>
+    </form>
+</div>
+<section>
+    <table>
+        <caption>Questions</caption>
+        <thead>
+        <tr>
+            <th>QuestionId</th>
+            <th>Text</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="q : ${questions}">
+            <td th:text="${q.id}"></td>
+            <td th:text="${q.text}"></td>
+            <td><a th:href="@{/DeleteQuestion(questid=${q.id})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>

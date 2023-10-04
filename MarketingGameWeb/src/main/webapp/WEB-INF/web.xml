@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <display-name>MarketingGameWeb</display-name>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    <filter>
+        <filter-name>Checker</filter-name>
+        <filter-class>it.polimi.db2.marketing.filter.LoggedIn</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Checker</filter-name>
+        <url-pattern>/AddAnswer</url-pattern>
+        <url-pattern>/AddProduct</url-pattern>
+        <url-pattern>/AddQuestion</url-pattern>
+        <url-pattern>/Creation</url-pattern>
+        <url-pattern>/DeleteQuestion</url-pattern>
+        <url-pattern>/DeleteQuestionnaire</url-pattern>
+        <url-pattern>/Deletion</url-pattern>
+        <url-pattern>/GoToAdminPage</url-pattern>
+        <url-pattern>/Home</url-pattern>
+        <url-pattern>/Inspection</url-pattern>
+        <url-pattern>/Leaderboard</url-pattern>
+        <url-pattern>/Logout</url-pattern>
+        <url-pattern>/Questionnaire</url-pattern>
+        <url-pattern>/Statistical</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>Admin</filter-name>
+        <filter-class>it.polimi.db2.marketing.filter.Admin</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Admin</filter-name>
+        <url-pattern>/AddProduct</url-pattern>
+        <url-pattern>/AddQuestion</url-pattern>
+        <url-pattern>/Creation</url-pattern>
+        <url-pattern>/DeleteQuestion</url-pattern>
+        <url-pattern>/DeleteQuestionnaire</url-pattern>
+        <url-pattern>/Deletion</url-pattern>
+        <url-pattern>/GoToAdminPage</url-pattern>
+    </filter-mapping>
+</web-app>

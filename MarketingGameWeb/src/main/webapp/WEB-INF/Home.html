@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../CSS/mystyle.css" th:href="@{/css/mystyle.css}" />
+</head>
+<body>
+<h1>Welcome to the MarketingGame Home Page</h1>
+<div align="right">
+    <a th:href="@{/Logout}">Logout</a>
+    <a th:href="@{/Leaderboard}">Leaderboard</a>
+</div>
+<section>
+    <div><p th:text=" ${errorMsg}"></p></div>
+    <div
+            th:if="${product} == null">
+			<span th:text="' No Product for today '"></span>
+    </div>
+    <div
+            th:if="${product != null && product.image != null}">
+        <span th:text="'Product of the day: ' + ${product.name}"></span>
+        <a
+                th:href="@{/Questionnaire}"><img
+                width="100px" alt="img"
+                th:src="${'data:image/png;base64,'+ product.getImageData()}">
+        </a>
+    </div>
+</section>
+<table>
+    <thead>
+    <tr>
+        <th>UserName</th>
+        <th>Text</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="r : ${reviews}">
+        <td th:text="${r.user.username}"></td>
+        <td th:text="${r.review}"></td>
+    </tr>
+    </tbody>
+</table>
+<section>
+</section>
+
+
+
+</body>
+</html>

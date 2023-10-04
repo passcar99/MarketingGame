@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Questionnaire</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../CSS/mystyle.css" th:href="@{/css/mystyle.css}" />
+</head>
+<body>
+<h1>Welcome to the MarketingGame Home Page</h1>
+<div align="right">
+    <a th:href="@{/Logout}">Logout</a>
+    <a th:href="@{/Statistical}">Next</a>
+</div>
+<section>
+    <div
+            th:if="${#lists.isEmpty(questions)}">
+        <span th:text="' No question for today '"></span>
+    </div>
+    <div
+            th:if="${not #lists.isEmpty(questions)}">
+        <form th:each="q: ${questions}" th:action="@{/AddAnswer(questId=${q.id})}" th:method = "POST">
+            <span th:text="${q.text}"></span>
+            <input type="text" name="answer" required>
+            <input type="submit" name="submit">
+        </form>
+        <p th:text=" ${errorMsg}"></p>
+    </div>
+</section>
+
+</body>
+</html>

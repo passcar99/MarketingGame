@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Greetings page</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../CSS/mystyle.css" th:href="@{/css/mystyle.css}" />
+</head>
+<body>
+<h1>You successfully submitted the questionnaire. Goodbye</h1>
+<div>
+    <form action="Logout" method="POST">
+        <input type="submit" value="Logout">
+    </form>
+
+</div>
+</html>
