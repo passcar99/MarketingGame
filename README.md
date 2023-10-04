@@ -5,4 +5,5 @@ The product is supposed to change every day.
 
 The aim was to test the competence with Java Persistence API/JEE and Java Beans so the UX is rather poor.
 The application is structured in three layers: the website, the application layer and the MySQL data server.
+The webpages are generated dynamically according to the data provided by the application layer using Thymeleaf templates.
 It can be deployed using Tomcat and MySQL.
